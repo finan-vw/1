@@ -13,6 +13,39 @@
     <link href="css/plugins.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/coloring.css" rel="stylesheet" type="text/css">
+        <style>/* =========================
+   BARRA DE PAGOS
+========================= */
+/* --- FIX BARRA DE PAGOS EN MÓVIL --- */
+.payment-bar {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px 5px;
+  gap: 10px;
+}
+
+.payment-bar img {
+  width: 70px;
+  height: auto;
+  margin: 5px;
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+  .payment-bar {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .payment-bar img {
+    width: 60px;
+    margin: 3px;
+  }
+}
+</style>
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1260260484665821&amp;ev=PageView&amp;noscript=1"
@@ -1218,9 +1251,662 @@ src="https://www.facebook.com/tr?id=1260260484665821&amp;ev=PageView&amp;noscrip
             </section>			
 
 
-			
-			
-			
+    <style>
+.testimonios {
+  width: 100%;
+  max-width: 100%;
+  margin: 50px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: transparent;
+}
+
+.testimonios h2 {
+  font-size: 32px;
+  color: #222;
+  margin: 0 0 30px;
+}
+
+/* CONTENEDOR HORIZONTAL */
+.testimonios-contenedor {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 10px 5px 20px;
+  box-sizing: border-box;
+
+  scroll-snap-type: x mandatory;
+
+  /* QUITAR BARRA DE SCROLL */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonios-contenedor::-webkit-scrollbar {
+  display: none;
+}
+
+/* FICHAS HORIZONTALES */
+.comentario {
+  width: 420px;
+  min-width: 420px;
+  height: 260px;
+  min-height: 260px;
+
+  flex: 0 0 420px;
+
+  box-sizing: border-box;
+
+  padding: 35px 45px;
+
+  background: #fff;
+  border-radius: 24px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  scroll-snap-align: center;
+}
+
+/* ESTRELLAS */
+.estrellas {
+  color: #ffc107;
+  font-size: 27px;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+/* TEXTO */
+.comentario-texto {
+  max-width: 330px;
+
+  margin: 0 0 20px;
+
+  color: #555;
+  font-size: 17px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* NOMBRE */
+.nombre {
+  color: #222;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.nombre::before {
+  content: "— ";
+  color: #ffc107;
+}
+
+/* EMPRESA */
+.empresa {
+  margin-top: 5px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+}
+.fecha {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* ==========================
+   MÓVIL
+========================== */
+
+@media (max-width: 600px) {
+
+  .testimonios {
+    margin: 30px auto;
+    padding: 0 12px;
+  }
+
+  .testimonios h2 {
+    font-size: 25px;
+  }
+
+  .testimonios-contenedor {
+    gap: 15px;
+  }
+
+  .comentario {
+    width: 300px;
+    min-width: 300px;
+    flex: 0 0 300px;
+
+    height: 280px;
+    min-height: 280px;
+
+    padding: 25px 25px;
+    border-radius: 22px;
+  }
+
+  .estrellas {
+    font-size: 23px;
+  }
+
+  .comentario-texto {
+    max-width: 245px;
+    font-size: 15px;
+  }
+
+  .nombre {
+    font-size: 16px;
+  }
+
+  .empresa {
+    font-size: 13px;
+  }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const contenedor = document.querySelector(".testimonios-contenedor");
+  const tarjetas = document.querySelectorAll(".testimonios-contenedor .comentario");
+
+  if (!contenedor || !tarjetas.length) return;
+
+  let indice = 0;
+
+  function avanzar() {
+    indice++;
+
+    if (indice >= tarjetas.length) {
+      indice = 0;
+    }
+
+    tarjetas[indice].scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest"
+    });
+  }
+
+  setInterval(avanzar, 3000);
+
+});
+</script>
+<section class="testimonios">
+
+  <h2>Lo que dicen nuestros clientes</h2>
+
+  <div class="testimonios-contenedor">
+
+<!-- 01 -->
+<!-- 01 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Me trajeron el coche hasta mi casa. Todo llegó muy bien y siempre estuvieron en comunicación conmigo."</p>
+  <div class="nombre">Rosa Martínez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">18 de febrero de 2024</div>
+</div>
+
+<!-- 02 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Quería regalarle su primer auto a mi hijo. Tenía mis dudas, pero todo fue mucho más fácil de lo que imaginaba."</p>
+  <div class="nombre">Carlos Ramírez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">7 de marzo de 2024</div>
+</div>
+
+<!-- 03 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Aparté el coche y después pasé a recogerlo en tienda. Me fueron avisando de todo y no tuve problemas."</p>
+  <div class="nombre">María Elena Torres</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">22 de abril de 2024</div>
+</div>
+
+<!-- 04 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Nosotros necesitábamos varios vehículos y el proceso de entrega fue muy organizado. Todo llegó en las fechas acordadas."</p>
+  <div class="nombre">Jorge Navarro</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">14 de mayo de 2024</div>
+</div>
+
+<!-- 05 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Soy una persona mayor y me ayudó mucho que llevaran el coche hasta mi domicilio. Me sentí muy tranquila durante todo el proceso."</p>
+  <div class="nombre">Elena González</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">3 de junio de 2024</div>
+</div>
+
+<!-- 06 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Dejé un apartado y después fui por el coche a la tienda. Todo estaba listo cuando llegué."</p>
+  <div class="nombre">Luis Herrera</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">19 de julio de 2024</div>
+</div>
+
+<!-- 07 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"No tenía tiempo para ir hasta la tienda. Que me lo llevaran a casa fue justo lo que necesitaba."</p>
+  <div class="nombre">Patricia López</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">8 de agosto de 2024</div>
+</div>
+
+<!-- 08 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"La entrega de las unidades fue puntual y nos mantuvieron informados durante el traslado."</p>
+  <div class="nombre">Miguel Sánchez</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">27 de agosto de 2024</div>
+</div>
+
+<!-- 09 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Me preocupaba comprar el coche sin ir varias veces a la tienda. Al final fue muy sencillo y me lo entregaron en casa."</p>
+  <div class="nombre">Andrea Flores</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">12 de septiembre de 2024</div>
+</div>
+
+<!-- 10 -->
+<div class="comentario">
+  <div class="estrellas">★★★☆☆</div>
+  <p class="comentario-texto">"El proceso de entrega tardó un poco más de lo esperado, pero finalmente recibí el coche en buenas condiciones."</p>
+  <div class="nombre">Roberto Mendoza</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">4 de octubre de 2024</div>
+</div>
+
+<!-- 11 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Aparté el coche para asegurarme de que no se vendiera. Después fui a recogerlo y todo estaba preparado."</p>
+  <div class="nombre">Fernanda Ruiz</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">18 de octubre de 2024</div>
+</div>
+
+<!-- 12 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Muy buena atención y comunicación durante la entrega. Solo tuve que esperar un poco más ese día."</p>
+  <div class="nombre">Daniel Ortega</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">9 de noviembre de 2024</div>
+</div>
+
+<!-- 13 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Era un regalo para mi esposa y quería que fuera sorpresa. Me ayudaron a coordinar la entrega en casa."</p>
+  <div class="nombre">Alejandro Cruz</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">23 de noviembre de 2024</div>
+</div>
+
+<!-- 14 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Todo fue muy sencillo. Dejé el apartado, esperé la fecha indicada y pasé por mi coche a la tienda."</p>
+  <div class="nombre">Gabriela Morales</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">11 de diciembre de 2024</div>
+</div>
+
+<!-- 15 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"La entrega hasta mi domicilio me facilitó muchísimo la compra. No tuve que hacer varios viajes."</p>
+  <div class="nombre">Iván Castillo</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">20 de enero de 2025</div>
+</div>
+
+<!-- 16 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Necesitábamos los vehículos para el trabajo y cumplieron con las fechas de entrega que nos habían dado."</p>
+  <div class="nombre">Sergio Vargas</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">6 de febrero de 2025</div>
+</div>
+
+<!-- 17 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Me dio mucha confianza que me fueran mandando información del traslado hasta que el coche llegó a mi casa."</p>
+  <div class="nombre">Laura Jiménez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">21 de febrero de 2025</div>
+</div>
+
+<!-- 18 -->
+<div class="comentario">
+  <div class="estrellas">★★★☆☆</div>
+  <p class="comentario-texto">"Tuve que esperar un poco para la entrega, pero siempre me avisaron y el coche llegó bien."</p>
+  <div class="nombre">Francisco León</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">13 de marzo de 2025</div>
+</div>
+
+<!-- 19 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Mi mamá no podía trasladarse hasta la tienda y por eso elegimos la entrega a domicilio. Todo salió excelente."</p>
+  <div class="nombre">Daniela Reyes</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">29 de marzo de 2025</div>
+</div>
+
+<!-- 20 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"La entrega de nuestras unidades fue ordenada y recibimos seguimiento hasta que llegaron."</p>
+  <div class="nombre">Mauricio Peña</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">17 de abril de 2025</div>
+</div>
+
+<!-- 21 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Tenía miedo de apartar un coche sin tener todo claro, pero me explicaron cada paso y salió muy bien."</p>
+  <div class="nombre">Claudia Romero</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">2 de mayo de 2025</div>
+</div>
+
+<!-- 22 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Pasé a recogerlo a tienda y ya tenían todo preparado. Fue rápido y sin vueltas innecesarias."</p>
+  <div class="nombre">José Luis Torres</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">16 de mayo de 2025</div>
+</div>
+
+<!-- 23 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Me gustó mucho que respetaran el horario que habíamos acordado para llevarme el coche a casa."</p>
+  <div class="nombre">Mónica Salazar</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">7 de junio de 2025</div>
+</div>
+
+<!-- 24 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Recibimos las unidades directamente en nuestras instalaciones. Todo llegó en orden y dentro del horario."</p>
+  <div class="nombre">Héctor Ramírez</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">25 de junio de 2025</div>
+</div>
+
+<!-- 25 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Compré mi primer coche y estaba bastante nerviosa. La entrega en casa hizo todo mucho más cómodo."</p>
+  <div class="nombre">Mariana Soto</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">12 de julio de 2025</div>
+</div>
+
+<!-- 26 -->
+<div class="comentario">
+  <div class="estrellas">★★★☆☆</div>
+  <p class="comentario-texto">"El apartado fue sencillo y el coche quedó reservado. Solo me hubiera gustado recibir más avisos durante la espera."</p>
+  <div class="nombre">Ricardo Luna</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">3 de agosto de 2025</div>
+</div>
+
+<!-- 27 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Lo compré para mi hijo y decidí que lo entregaran en casa. La sorpresa salió justo como quería."</p>
+  <div class="nombre">Verónica Campos</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">19 de agosto de 2025</div>
+</div>
+
+<!-- 28 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Buena experiencia con la entrega de las unidades. Nos ayudaron a coordinar los horarios."</p>
+  <div class="nombre">Eduardo Molina</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">5 de septiembre de 2025</div>
+</div>
+
+<!-- 29 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Vivo un poco retirado y agradecí mucho que llevaran el coche hasta mi domicilio. Llegó perfecto."</p>
+  <div class="nombre">Ana Belén Cruz</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">22 de septiembre de 2025</div>
+</div>
+
+<!-- 30 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Aparté mi coche y fui por él unos días después. Todo estaba listo y la entrega en tienda fue rápida."</p>
+  <div class="nombre">Manuel Ortega</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">10 de octubre de 2025</div>
+</div>
+
+<!-- 31 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"No podía salir de casa por trabajo y la entrega a domicilio me resolvió todo. Muy práctico."</p>
+  <div class="nombre">Sofía Hernández</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">28 de octubre de 2025</div>
+</div>
+
+<!-- 32 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"La entrega de los vehículos fue muy puntual. Nos avisaron antes de que salieran y al llegar."</p>
+  <div class="nombre">Alejandro Medina</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">14 de noviembre de 2025</div>
+</div>
+
+<!-- 33 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Era mi primera compra y tenía muchas preguntas. Me ayudaron hasta que me sentí segura para apartarlo."</p>
+  <div class="nombre">Paola García</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">2 de diciembre de 2025</div>
+</div>
+
+<!-- 34 -->
+<div class="comentario">
+  <div class="estrellas">★★★☆☆</div>
+  <p class="comentario-texto">"Todo bien con la entrega, aunque se retrasó un poco. Me avisaron y finalmente llegó sin problema."</p>
+  <div class="nombre">Javier Silva</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">18 de diciembre de 2025</div>
+</div>
+
+<!-- 35 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Mi hija estaba esperando su coche y logramos que se lo entregaran en casa como sorpresa. Le encantó."</p>
+  <div class="nombre">Rocío Martínez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">9 de enero de 2026</div>
+</div>
+
+<!-- 36 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Nos entregaron los vehículos directamente en el negocio. Buena coordinación y seguimiento."</p>
+  <div class="nombre">Fernando Castillo</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">24 de enero de 2026</div>
+</div>
+
+<!-- 37 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Aparté el coche porque todavía no podía recogerlo. Cuando fui a tienda ya estaba todo preparado."</p>
+  <div class="nombre">Teresa Navarro</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">8 de febrero de 2026</div>
+</div>
+
+<!-- 38 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Me trajeron el coche hasta casa y pude revisarlo tranquilamente con mi familia. Muy buena experiencia."</p>
+  <div class="nombre">Óscar Ramírez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">21 de febrero de 2026</div>
+</div>
+
+<!-- 39 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"La entrega fue en la fecha acordada y el coche llegó en buenas condiciones. Muy atentos durante el traslado."</p>
+  <div class="nombre">Laura Pérez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">6 de marzo de 2026</div>
+</div>
+
+<!-- 40 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Necesitábamos recibir varias unidades el mismo día y nos ayudaron a organizar toda la entrega."</p>
+  <div class="nombre">Raúl Mendoza</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">18 de marzo de 2026</div>
+</div>
+
+<!-- 41 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Me dio mucha tranquilidad tener comunicación durante todo el traslado. Cuando llegó a casa estaba todo perfecto."</p>
+  <div class="nombre">Gabriela Flores</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">29 de marzo de 2026</div>
+</div>
+
+<!-- 42 -->
+<div class="comentario">
+  <div class="estrellas">★★☆☆☆</div>
+  <p class="comentario-texto">"El coche llegó bien, pero la entrega se retrasó más de lo que esperaba. La comunicación pudo ser mejor."</p>
+  <div class="nombre">Mario Torres</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">7 de abril de 2026</div>
+</div>
+
+<!-- 43 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Aparté el coche y después pasé a recogerlo. Me gustó que respetaran la reservación y todo estuviera listo."</p>
+  <div class="nombre">Natalia López</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">15 de abril de 2026</div>
+</div>
+
+<!-- 44 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Muy buena atención. La entrega en domicilio fue cómoda porque no tenía forma de ir a la tienda ese día."</p>
+  <div class="nombre">Pedro Sánchez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">23 de abril de 2026</div>
+</div>
+
+<!-- 45 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Recibimos las unidades en nuestra sucursal y todo estuvo bien coordinado. Cumplieron con lo acordado."</p>
+  <div class="nombre">Marcos Rivera</div>
+  <div class="empresa">Cliente empresarial</div>
+  <div class="fecha">30 de abril de 2026</div>
+</div>
+
+<!-- 46 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Mi papá no podía ir por el coche y decidimos pedir la entrega a domicilio. Nos facilitaron muchísimo las cosas."</p>
+  <div class="nombre">Lucía Moreno</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">4 de mayo de 2026</div>
+</div>
+
+<!-- 47 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Todo salió bien con mi apartado. Fui a recoger el coche a tienda y no tuve que esperar demasiado."</p>
+  <div class="nombre">Arturo Gómez</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">8 de mayo de 2026</div>
+</div>
+
+<!-- 48 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"La entrega hasta mi domicilio fue lo mejor. Me avisaron cuando salieron y cuando estaban por llegar."</p>
+  <div class="nombre">Carmen Rojas</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">12 de mayo de 2026</div>
+</div>
+
+<!-- 49 -->
+<div class="comentario">
+  <div class="estrellas">★★★★★</div>
+  <p class="comentario-texto">"Compré el coche para mi hijo y todo salió como lo planeamos. La entrega fue puntual y sin complicaciones."</p>
+  <div class="nombre">Enrique Vargas</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">18 de mayo de 2026</div>
+</div>
+
+<!-- 50 -->
+<div class="comentario">
+  <div class="estrellas">★★★★☆</div>
+  <p class="comentario-texto">"Aparté mi coche y pasé a recogerlo en tienda. Me gustó que desde el inicio me explicaran cómo sería el proceso."</p>
+  <div class="nombre">Silvia Cortés</div>
+  <div class="empresa">Cliente particular</div>
+  <div class="fecha">25 de mayo de 2026</div>
+</div>
+
+
+
+  </div>
+
+</section>
 
        
 
@@ -1233,13 +1919,13 @@ src="https://www.facebook.com/tr?id=1260260484665821&amp;ev=PageView&amp;noscrip
                 <div class="row g-custom-x">
                     <div class="col-lg-4">
                         <div class="widget">
-                            <h5>Sitio Seguro</h5>
+                              <h5>Sitio Seguro</h5>
                             <a href="solicitud.html"><img src="portada/ssl.png" width="200"></a>
                             <p>Sitio autorizado convenio 2026.</p>
                         </div>
                     </div>
                     
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
                         <div class="widget">
                             <h5>Planta</h5>
                             <address class="s1">
@@ -1250,11 +1936,20 @@ src="https://www.facebook.com/tr?id=1260260484665821&amp;ev=PageView&amp;noscrip
                         </div>
                     </div>
 
-              
+              <script src="https://kit.fontawesome.com/b46844f7c3.js" crossorigin="anonymous"></script>
+<div class="col-sm-4" style="text-align:center;">
+          <img src="mm.png" style="max-width:250px;padding-top:10%;">
+        </div>
 
          
                 </div>
             </div>
+             <div class="payment-bar">
+      <img src="visa.png">
+      <img src="master.png">
+      <img src="spei.png">
+      <img src="oxxo.png">
+    </div>
             <div class="subfooter">
                 <div class="container">
                     <div class="row">

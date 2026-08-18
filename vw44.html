@@ -13,6 +13,39 @@
     <link href="css/plugins.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/coloring.css" rel="stylesheet" type="text/css">
+        <style>/* =========================
+   BARRA DE PAGOS
+========================= */
+/* --- FIX BARRA DE PAGOS EN MÓVIL --- */
+.payment-bar {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px 5px;
+  gap: 10px;
+}
+
+.payment-bar img {
+  width: 70px;
+  height: auto;
+  margin: 5px;
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+  .payment-bar {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .payment-bar img {
+    width: 60px;
+    margin: 3px;
+  }
+}
+</style>
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1260260484665821&amp;ev=PageView&amp;noscript=1"
@@ -267,13 +300,13 @@ src="https://www.facebook.com/tr?id=1260260484665821&amp;ev=PageView&amp;noscrip
                 <div class="row g-custom-x">
                     <div class="col-lg-4">
                         <div class="widget">
-                            <h5>Sitio Seguro</h5>
+                                <h5>Sitio Seguro</h5>
                             <a href="solicitud.html"><img src="portada/ssl.png" width="200"></a>
                             <p>Sitio autorizado convenio 2026.</p>
                         </div>
                     </div>
                     
-                    <div class="col-lg-8">
+                    <div class="col-lg-4">
                         <div class="widget">
                             <h5>Planta</h5>
                             <address class="s1">
@@ -285,11 +318,19 @@ src="https://www.facebook.com/tr?id=1260260484665821&amp;ev=PageView&amp;noscrip
                     </div>
 
               <script src="https://kit.fontawesome.com/b46844f7c3.js" crossorigin="anonymous"></script>
-
+<div class="col-sm-4" style="text-align:center;">
+          <img src="mm.png" style="max-width:250px;padding-top:10%;">
+        </div>
 
          
                 </div>
             </div>
+             <div class="payment-bar">
+      <img src="visa.png">
+      <img src="master.png">
+      <img src="spei.png">
+      <img src="oxxo.png">
+    </div>
             <div class="subfooter">
                 <div class="container">
                     <div class="row">
